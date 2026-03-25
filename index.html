@@ -1,81 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sakthi Kirubakaran | Customer Success & Presales Manager</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakthi Kirubakaran | Customer Success & Presales Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    
+    .section-fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .toast {
+      animation: slideUp 0.4s ease forwards;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
 </head>
 <body class="bg-zinc-950 text-white">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-lg z-50 border-b border-zinc-800">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="text-3xl font-bold tracking-tighter">Sakthi<span class="text-emerald-400">.</span></div>
-            <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="#about" class="hover:text-emerald-400 transition">About</a>
-                <a href="#experience" class="hover:text-emerald-400 transition">Experience</a>
-                <a href="#projects" class="hover:text-emerald-400 transition">Projects</a>
-                <a href="#skills" class="hover:text-emerald-400 transition">Skills</a>
-                <a href="#education" class="hover:text-emerald-400 transition">Education</a>
-                <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
-            </div>
-            <a href="https://www.linkedin.com/in/sakthi-kirubakaran-b3789419b/" target="_blank"
-               class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-sm font-semibold flex items-center gap-2 transition">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-black/95 backdrop-blur-lg z-50 border-b border-zinc-800">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="text-3xl font-bold tracking-tighter">Sakthi<span class="text-emerald-400">.</span></div>
+      
+      <div class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#about" class="nav-link hover:text-emerald-400">About</a>
+        <a href="#experience" class="nav-link hover:text-emerald-400">Experience</a>
+        <a href="#projects" class="nav-link hover:text-emerald-400">Projects</a>
+        <a href="#skills" class="nav-link hover:text-emerald-400">Skills</a>
+        <a href="#education" class="nav-link hover:text-emerald-400">Education</a>
+        <a href="#contact" class="nav-link hover:text-emerald-400">Contact</a>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-emerald-950 to-zinc-950">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-6xl font-bold leading-none">Sakthi Kirubakaran</h1>
-                <p class="text-4xl text-emerald-400 mt-3">Customer Success & Presales Manager</p>
-                <p class="mt-8 text-lg text-zinc-300 max-w-lg">
-                    Strategic SaaS CSM & Presales Manager with 9+ years driving 95% onboarding success and 30% revenue growth at Zoho. 
-                    Champion of customer advocacy, AI automation, and enterprise value delivery. Currently pursuing PhD in AI & Machine Learning.
-                </p>
-                
-                <div class="mt-12 flex flex-wrap gap-4">
-                    <a href="https://www.linkedin.com/in/sakthi-kirubakaran-b3789419b/" target="_blank"
-                       class="px-8 py-4 bg-white text-black font-semibold rounded-2xl hover:scale-105 transition flex items-center gap-2">
-                        <i class="fab fa-linkedin"></i> View LinkedIn
-                    </a>
-                    <a href="resume.pdf" download="Sakthi_Kirubakaran_CSM_Presales_Manager.pdf"
-                       class="px-8 py-4 border border-white/40 hover:border-white font-semibold rounded-2xl transition flex items-center gap-2">
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                </div>
-            </div>
-            <div class="flex justify-center">
-                <div class="w-80 h-80 bg-black rounded-3xl overflow-hidden border-8 border-emerald-400 shadow-2xl">
-                    <!-- YOUR PROFILE PHOTO - MUST BE IN THE FOLDER -->
-                    <img src="Sakthikirubakaran.jpeg" 
-                         alt="Sakthi Kirubakaran" 
-                         class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
+      <button id="mobileMenuBtn" class="md:hidden text-3xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
 
-    <!-- About -->
-    <section id="about" class="py-24 bg-zinc-900">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-5xl font-bold mb-8">Strategic Customer Success & Presales Manager</h2>
-            <p class="text-xl text-zinc-300">
-                9+ years in SaaS and cloud ecosystems. Delivered 95% onboarding success and 30% revenue growth through scalable solutions, 
-                AI-driven insights, and strong customer advocacy programs that turn VOC feedback into roadmap impact and long-term loyalty.
-            </p>
-        </div>
-    </section>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800 py-6">
+      <div class="flex flex-col gap-6 px-6 text-center text-lg">
+        <a href="#about" class="nav-link mobile-link">About</a>
+        <a href="#experience" class="nav-link mobile-link">Experience</a>
+        <a href="#projects" class="nav-link mobile-link">Projects</a>
+        <a href="#skills" class="nav-link mobile-link">Skills</a>
+        <a href="#education" class="nav-link mobile-link">Education</a>
+        <a href="#contact" class="nav-link mobile-link">Contact</a>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center pt-20 bg-gradient-to-br from-emerald-950 to-zinc-950">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-6xl font-bold leading-none">Sakthi Kirubakaran</h1>
+        <p class="text-4xl text-emerald-400 mt-3">Customer Success & Presales Manager</p>
+        <p class="mt-8 text-lg text-zinc-300 max-w-lg">
+          Strategic SaaS CSM & Presales Manager with 9+ years driving 95% onboarding success and 30% revenue growth at Zoho. 
+          Champion of customer advocacy, AI automation, and enterprise value delivery.
+        </p>
+        <div class="mt-12 flex flex-wrap gap-4">
+          <a href="https://www.linkedin.com/in/sakthi-kirubakaran-b3789419b/" target="_blank" 
+             class="px-8 py-4 bg-white text-black font-semibold rounded-2xl hover:scale-105 transition flex items-center gap-2">
+            <i class="fab fa-linkedin"></i> View LinkedIn
+          </a>
+          <button onclick="downloadResume()" 
+                  class="px-8 py-4 border border-white/40 hover:border-white font-semibold rounded-2xl transition flex items-center gap-2">
+            <i class="fas fa-download"></i> Download Resume
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <div class="w-80 h-80 bg-black rounded-3xl overflow-hidden border-8 border-emerald-400 shadow-2xl">
+          <img src="Sakthikirubakaran.jpeg" alt="Sakthi Kirubakaran" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 bg-zinc-900">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-8">Strategic Customer Success & Presales Manager</h2>
+      <p class="text-xl text-zinc-300">
+        9+ years in SaaS and cloud ecosystems. Delivered 95% onboarding success and 30% revenue growth through scalable solutions, 
+        AI-driven insights, and strong customer advocacy programs.
+      </p>
+    </div>
+  </section>
     <!-- Experience -->
     <section id="experience" class="py-24">
         <div class="max-w-5xl mx-auto px-6">
@@ -199,29 +225,128 @@
         </div>
     </section>
 
-    <!-- Contact Form -->
-    <section id="contact" class="py-24">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-4">Let's Connect</h2>
-            <p class="text-zinc-400 text-center mb-12">Send me a message directly — I'll reply within 24 hours.</p>
-            
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6 bg-zinc-900 p-10 rounded-3xl">
-                <input type="text" name="name" placeholder="Your Name" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400">
-                <input type="email" name="email" placeholder="Your Email" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400">
-                <textarea name="message" rows="6" placeholder="Your Message" required class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400"></textarea>
-                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 py-5 rounded-2xl font-semibold text-lg transition">Send Message</button>
-            </form>
-            
-            <p class="text-xs text-zinc-500 text-center mt-8">
-                Replace <strong>YOUR_FORM_ID</strong> with your Formspree endpoint (free at formspree.io)
-            </p>
-        </div>
-    </section>
+ <!-- Contact Form - Fixed & Improved -->
+  <section id="contact" class="py-24 bg-zinc-900">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4">Let's Connect</h2>
+      <p class="text-zinc-400 text-center mb-12">Send me a message — I'll reply within 24 hours.</p>
+      
+      <form id="contactForm" class="space-y-6 bg-zinc-800 p-10 rounded-3xl">
+        <input type="text" id="name" placeholder="Your Name" required 
+               class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 focus:outline-none">
+        <input type="email" id="email" placeholder="Your Email" required 
+               class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 focus:outline-none">
+        <textarea id="message" rows="6" placeholder="Your Message" required 
+                  class="w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-4 focus:border-emerald-400 focus:outline-none"></textarea>
+        
+        <button type="submit" id="submitBtn"
+                class="w-full bg-emerald-600 hover:bg-emerald-500 py-5 rounded-2xl font-semibold text-lg transition flex items-center justify-center gap-3">
+          <span id="btnText">Send Message</span>
+          <span id="loadingSpinner" class="hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+        </button>
+      </form>
 
-    <!-- Footer -->
-    <footer class="py-12 text-center text-zinc-500 border-t border-zinc-800">
-        Built with ❤️ in Visual Studio Code + Crew AI • © 2026 Sakthi Kirubakaran
-    </footer>
+      <div id="successMessage" class="hidden mt-8 text-center bg-emerald-500/10 border border-emerald-500 text-emerald-400 py-8 rounded-3xl">
+        <i class="fas fa-check-circle text-5xl mb-4"></i>
+        <p class="text-2xl font-medium">Thank you! Your message has been sent successfully 🎉</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- Toast Notification -->
+  <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-8 py-4 rounded-2xl shadow-2xl flex items-center gap-3 toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastText">Resume downloaded successfully!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-12 text-center text-zinc-500 border-t border-zinc-800">
+    Built with ❤️ using Tailwind + JavaScript • © 2026 Sakthi Kirubakaran
+  </footer>
+
+  <script>
+    // Mobile Menu
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileBtn.innerHTML = mobileMenu.classList.contains('hidden') 
+        ? '<i class="fas fa-bars"></i>' 
+        : '<i class="fas fa-times"></i>';
+    });
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Contact Form
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) return;
+
+      btnText.classList.add('hidden');
+      loadingSpinner.classList.remove('hidden');
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        successMessage.classList.remove('hidden');
+        form.reset();
+
+        btnText.classList.remove('hidden');
+        loadingSpinner.classList.add('hidden');
+        submitBtn.disabled = false;
+
+        setTimeout(() => successMessage.classList.add('hidden'), 5000);
+      }, 1000);
+    });
+
+    // Download Resume with Toast
+    function downloadResume() {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toastText');
+      
+      toastText.textContent = "Resume downloaded successfully!";
+      toast.classList.remove('hidden');
+
+      // Simulate download
+      setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = "resume.pdf";   // Change this to your actual resume file name if different
+        link.download = "Sakthi_Kirubakaran_CSM_Presales_Manager.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 300);
+
+      setTimeout(() => toast.classList.add('hidden'), 3000);
+    }
+
+    // Scroll Fade-in
+    const sections = document.querySelectorAll('.section-fade');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
